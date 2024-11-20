@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello ji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-image: url('https://i.redd.it/d3h7ofnt73621.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .timer {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: monospace;
+        }
+        .text-display {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .input-area {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1.1em;
+            border: 2px solid rgba(221, 221, 221, 0.8);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .input-area:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .results {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .restart-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .restart-btn:hover {
+            background-color: #45a049;
+        }
+        .custom-text-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .custom-text-input {
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid rgba(221, 221, 221, 0.8);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .set-text-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .set-text-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timer">00:00:000</div>
+        <div class="custom-text-container">
+            <input type="text" class="custom-text-input" placeholder="This was made by Ayush, but you can write anything you want here :/">
+            <button class="set-text-btn">Set Text</button>
+        </div>
+        <div class="text-display">Start typing the text below:</div>
+        <textarea class="input-area" placeholder="Start typing here..."></textarea>
+        <div class="results"></div>
+        <button class="restart-btn">Restart Test</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
