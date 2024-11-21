@@ -19,7 +19,6 @@ let timeStarted = false;
 let startTime;
 let timerInterval;
 
-// Initialize the test
 function initTest() {
     currentText = testTexts[Math.floor(Math.random() * testTexts.length)];
     textDisplay.textContent = currentText;
@@ -32,13 +31,11 @@ function initTest() {
     customTextInput.value = '';
 }
 
-// Start the timer
 function startTimer() {
     startTime = new Date();
     timerInterval = setInterval(updateTimer, 10);
 }
 
-// Update the timer display
 function updateTimer() {
     const currentTime = new Date();
     const timeElapsed = currentTime - startTime;
@@ -48,36 +45,26 @@ function updateTimer() {
     timer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(3, '0')}`;
 }
 
-// Calculate typing speed and accuracy
 function calculateResults() {
     const endTime = new Date();
-    const timeElapsed = (endTime - startTime) / 1000; // Convert to seconds
+    const timeElapsed = (endTime - startTime) / 1000;
     const wordsTyped = inputArea.value.trim().split(/\s+/).length;
     const wpm = Math.round((wordsTyped / timeElapsed) * 60);
     const accuracy = calculateAccuracy(currentText.trim(), inputArea.value.trim());
-    
-    return {
-        wpm,
-        accuracy
-    };
+    return { wpm, accuracy };
 }
 
-// Calculate accuracy percentage
 function calculateAccuracy(original, typed) {
     if (typed.length === 0) return 0;
-    
     let correct = 0;
     const originalWords = original.split(' ');
     const typedWords = typed.split(' ');
-    
     typedWords.forEach((word, i) => {
         if (word === originalWords[i]) correct++;
     });
-    
     return Math.round((correct / originalWords.length) * 100);
 }
 
-// Set custom text
 function setCustomText() {
     const customText = customTextInput.value.trim();
     if (customText) {
@@ -92,17 +79,13 @@ function setCustomText() {
     }
 }
 
-// Event listeners
 inputArea.addEventListener('input', () => {
     if (!timeStarted && inputArea.value.length === 1) {
         timeStarted = true;
         startTimer();
     }
-    
-    // Trim both strings to handle any extra spaces
     const inputText = inputArea.value.trim();
     const targetText = currentText.trim();
-    
     if (inputText === targetText) {
         clearInterval(timerInterval);
         inputArea.disabled = true;
@@ -114,5 +97,4 @@ inputArea.addEventListener('input', () => {
 restartBtn.addEventListener('click', initTest);
 setTextBtn.addEventListener('click', setCustomText);
 
-// Initialize the test when the page loads
 initTest();
